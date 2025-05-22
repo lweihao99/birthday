@@ -1,6 +1,6 @@
 body {
-	/*background-color: #FFDAB9;	*/
-	background-color: #000;
+	font-family: 'Poppins', sans-serif; /* Updated base font */
+	background-color: #f0f8ff; /* New initial background: AliceBlue */
 	-webkit-transition:background-color linear 5s;
 	-moz-transition:background-color linear 5s;
 	-o-transition:background-color linear 5s;
@@ -12,118 +12,134 @@ body {
 	display: none;
 }
 .peach {
-	background-color: #FFDAB9;
+	background-color: #FF7F50; /* New peach state: Coral */
 	
 }
 .peach-after {
-	-webkit-animation:peach_alive linear 8s infinite;
+	-webkit-animation:peach_alive linear 8s infinite; /* Animation will use variations of Coral */
 	-moz-animation:peach_alive linear 8s infinite;
 	-o-animation:peach_alive linear 8s infinite;
 	-ms-animation:peach_alive linear 8s infinite;
 	animation:peach_alive linear 8s infinite;
 }
 
-@-webkit-keyframes peach_alive {
+@-webkit-keyframes peach_alive { /* Updated peach_alive animation colors */
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50; /* Coral */
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #FF8C69; /* Lighter Coral / Tomato variant */
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50; /* Coral */
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #FFA07A; /* Light Salmon */
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50; /* Coral */
 	}
 }
 @-moz-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #FF8C69;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #FFA07A;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 }
 
 @-o-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #FF8C69;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #FFA07A;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 }
 
 @-ms-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #FF8C69;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #FFA07A;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 }
 
 @keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #FF8C69;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #FFA07A;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FF7F50;
 	}
 }
 
 
 .bulb {
-	width: 50px;
-	height: 50px;
+	width: 10vw; /* Relative unit */
+	height: 10vw; /* Relative unit */
+	max-width: 50px; /* Max size */
+	max-height: 50px; /* Max size */
 	margin: auto;
 	background-repeat: no-repeat no-repeat;
 	background-position:center 0px;
-	background-size: 50px 50px;
+	background-size: contain; /* Ensure aspect ratio is maintained */
 }
 
 .bulb-holder {
-	height: 70px;
+	height: 15vw; /* Relative unit */
+	max-height: 70px; /* Max size */
+	/* Bootstrap classes col-md-2 col-xs-2 handle initial sizing. */
+    /* We will adjust width for smaller screens in media queries for more control. */
+    padding: 5px; /* Add some padding for spacing */
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+/* Flexbox for the row containing bulb holders */
+/* Targeting the first .row direct child of .container, assuming it's the bulb row */
+.container > .row:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center bulbs if they don't fill the whole row */
+    align-items: center; /* Align items vertically if they wrap to multiple lines and have different heights */
 }
 
 .bulb-glow-yellow {
@@ -970,6 +986,7 @@ audio {
 
 .bannar {
 	max-width: 100%;
+	height: auto;
 	-webkit-transform:translate(0px,-500px);
 	-moz-transform:translate(0px,-500px);
 	-o-transform:translate(0px,-500px);
@@ -1077,21 +1094,39 @@ audio {
 
 .balloons {
 	position: fixed;
-	bottom: -200px;
+	bottom: -20vw; /* Relative unit */
 	opacity: 0.6;
 	z-index: 99;
-	width: 100px;
-	height: 183px;
+	width: 15vw; /* Relative unit */
+	height: 27vw; /* Relative unit */
+	max-width: 100px; /* Max size */
+	max-height: 183px; /* Max size */
 	background-repeat: no-repeat no-repeat;
-	background-size: 100px 183px;
+	background-size: contain; /* Ensure aspect ratio */
 }
 .balloons h2 {
 	text-transform: uppercase;
-	font-family: 'Signika', sans-serif;
-	font-size: 50px;
-	color: #BF4136;
-	text-shadow: 5px 5px 5px #FFF;
+	font-family: 'Poppins', sans-serif; /* Updated font */
+	font-size: clamp(20px, 5vw, 50px); 
+	/* Specific colors are set inline in HTML, will need JS to change or override here if possible */
+	/* As a fallback, I can set a default color here, but inline styles will override */
+	/* Default color for balloon text, now that inline styles are removed from HTML */
+	color: #FF69B4; /* Default HotPink */
+	text-shadow: 1px 1px 1px #444; /* Adjusted shadow */
 	display: none;
+}
+
+/* New specific colors for balloon letters */
+#b1 h2 { color: #FFD700; } /* L - Gold */
+#b2 h2 { color: #FF69B4; } /* i - HotPink */
+#b3 h2 { color: #20c997; } /* n - Teal */
+#b4 h2 { color: #FFD700; } /* d - Gold */
+#b5 h2 { color: #FF69B4; } /* a - HotPink */
+/* #b6 and #b7 h2 will inherit the default .balloons h2 color or need specific rules if they exist */
+
+/* Ensuring any other potential balloons also get a default if not specified */
+#b6 h2, #b7 h2 {
+	color: #20c997; /* Teal for any additional balloons */
 }
 #b1,#b11 {
 	background-image: url('b1.png');
@@ -1264,6 +1299,14 @@ audio {
 	display: none;
 }
 
+/* Make button container flexible */
+.navbar-fixed-bottom .row .col-md-offset-3 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 .cake-cover {
 	margin-top: 50px;
 }
@@ -1272,39 +1315,160 @@ audio {
 	display: none;
 }
 .message p {
-	font-family: 'Signika', sans-serif;
-	font-size: 30px;
+	font-family: 'Poppins', sans-serif; /* Updated font */
+	font-size: clamp(16px, 3vw, 30px); 
 	text-transform: uppercase;
-	color: #C4515C;
-	text-shadow: 2px 2px 2px #FFF;
+	color: #333333; /* New text color: Dark Grey */
+	text-shadow: 1px 1px 1px #eee; /* Adjusted shadow */
 	display: none;
 	font-weight: bold;
 }
 
 .btn-primary {
-        border-color: #466baf;
-        padding: 10px;
+        border-color: #1ca882; /* Darker shade of Teal for border */
+        padding: 0.5em 1em; 
+        margin: 0.5em; 
         text-transform: uppercase;
-        font-family: 'Signika', sans-serif;
+        font-family: 'Poppins', sans-serif; /* Updated font */
         font-weight: 700;
-        color: #fff;
-        background-color: #466baf;
+        color: #FFFFFF; /* White text */
+        background-color: #20c997; /* New BG: Teal */
 }
     .btn-primary:hover,
     .btn-primary:focus,
     .btn-primary:active,
     .btn-primary.active,
     .open .dropdown-toggle.btn-primary {
-        border-color: #fff;
-        color: #fff;
-        background-color: #466baf;
+        border-color: #20c997; /* Teal border */
+        color: #FFFFFF; /* White text */
+        background-color: #1ba180; /* Darker Teal for hover/active */
     }
 
 
 
     /*controlling tablet width*/
-    /*@media only screen and (max-width: 720px){
-    	.container {
-    		-webkit-transform: scale(0.9);
-    	}
-    }*/
+@media only screen and (max-width: 768px){
+	.bannar {
+		/* Smaller movement for banner on mobile */
+		-webkit-transform:translate(0px,-300px);
+		-moz-transform:translate(0px,-300px);
+		-o-transform:translate(0px,-300px);
+		-ms-transform:translate(0px,-300px);
+		transform:translate(0px,-300px);
+	}
+	/* Removed max-font-size and vw overrides from here, clamp() handles it */
+    /* Ensure bulb-holder flex properties are consistent */
+    .bulb-holder {
+        width: 33.33%; /* 3 bulbs per row */
+        flex-grow: 0; 
+        flex-shrink: 0; 
+    }
+    .btn-primary {
+        padding: clamp(0.6em, 2vw, 0.8em) clamp(1em, 3vw, 1.2em);
+        font-size: clamp(0.8em, 2.5vw, 0.9em);
+    }
+}
+
+@media only screen and (max-width: 480px){
+	.bulb {
+		width: clamp(40px, 20vw, 60px); 
+		height: clamp(40px, 20vw, 60px);
+	}
+	.bulb-holder {
+		height: auto; /* Let bulb size dictate height + padding */
+        width: 50%; /* 2 bulbs per row */
+        flex-grow: 0; /* Prevent growing beyond basis */
+        flex-shrink: 0; /* Prevent shrinking beyond basis */
+        /* padding adjustment for smaller items if needed */
+	}
+	/* .message p font-size already handled by clamp() */
+	.balloons {
+		width: clamp(80px, 25vw, 100px); 
+		height: auto; /* Maintain aspect via background-size: contain; */
+		bottom: -8vw; /* Adjust position */
+	}
+	/* .balloons h2 font-size already handled by clamp() */
+
+	.navbar-fixed-bottom .row .col-md-offset-3 {
+		 gap: 0.25em; /* Add small gap between buttons if they wrap to multiple lines */
+	}
+    .btn-primary {
+        padding: clamp(0.8em, 3vw, 1em) clamp(1.2em, 4vw, 1.5em);
+        width: calc(50% - 0.25em); /* Two buttons per row, considering parent's gap */
+        box-sizing: border-box;
+        font-size: clamp(0.7em, 2.2vw, 0.8em);
+        margin: 0; /* Remove individual margins, rely on parent's gap */
+    }
+}
+
+/* Media query for very narrow screens like iPhone 5/SE (320px) */
+@media only screen and (max-width: 320px) {
+    .navbar-fixed-bottom .row .col-md-offset-3 {
+        gap: 0.1em; /* Reduce gap for very small screens if buttons stack */
+    }
+    .btn-primary {
+        width: 100%; /* One button per row */
+        margin: 0.2em 0; /* Add some vertical margin if they stack */
+        padding-left: 0.5em; /* Ensure padding is not too large for 100% width */
+        padding-right: 0.5em;
+    }
+    .balloons {
+		width: clamp(60px, 25vw, 80px); /* Further reduce balloon size */
+	}
+    .bulb {
+		width: clamp(30px, 20vw, 40px); /* Further reduce bulb size */
+		height: clamp(30px, 20vw, 40px);
+	}
+}
+
+/* Remove redundant min-width: 1000px media query as clamp() handles max sizes */
+/* If specific overrides are still needed for very large screens, they can be placed here */
+/* For example, if vw units in clamp() still grow too large on ultra-wide screens */
+
+/* === Animation Modernization: Fade Transition Classes === */
+.hidden-initially { /* Apply this to elements that should start hidden and then be shown */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.is-visible {
+    opacity: 1 !important; /* Use important if overriding inline styles or highly specific rules */
+    visibility: visible !important;
+    transition-property: opacity, visibility;
+    /* Default transition timing, can be overridden by .transition-slow/fast */
+    transition-duration: 0.5s; 
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.is-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition-property: opacity, visibility;
+    /* Default transition timing */
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    /* Delay visibility change for fade-out to allow opacity transition to complete */
+    transition-delay: 0s, 0.5s; /* opacity 0s, visibility 0.5s delay */
+}
+
+/* Transition speed modifiers */
+.transition-slow .is-visible, /* Target .is-visible when .transition-slow is also present */
+.transition-slow.is-visible, /* Or if .is-visible itself has .transition-slow */
+.transition-slow .is-hidden,
+.transition-slow.is-hidden {
+    transition-duration: 1s !important;
+}
+.transition-slow.is-hidden { /* Specifically for fade-out 'slow' */
+    transition-delay: 0s, 1s !important; /* Delay visibility for 1s */
+}
+
+.transition-fast .is-visible,
+.transition-fast.is-visible,
+.transition-fast .is-hidden,
+.transition-fast.is-hidden {
+    transition-duration: 0.3s !important;
+}
+.transition-fast.is-hidden { /* Specifically for fade-out 'fast' */
+    transition-delay: 0s, 0.3s !important; /* Delay visibility for 0.3s */
+}
