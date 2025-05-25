@@ -117,8 +117,8 @@ $('document').ready(function(){
 		}, 6000 + TRANSITION_DURATIONS.slow);
 	});
 
-			});
-		}, 6000 + TRANSITION_DURATIONS.slow); // Assuming bannar animation is roughly 6s
+		// 	});
+		// }, 6000 + TRANSITION_DURATIONS.slow); // Assuming bannar animation is roughly 6s
 	});
 
 	$('#balloons_flying').click(function(){
@@ -302,7 +302,7 @@ $('document').ready(function(){
 		
 		msgLoop(0); // Start the loop for messages
 	});
-});
+// });
 
 
 
@@ -445,7 +445,7 @@ $('document').ready(function(){
 		msgLoop(0);
 		
 	});
-});
+// });
 
 
 
